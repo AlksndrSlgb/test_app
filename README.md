@@ -9,6 +9,7 @@ Test app.
 ## How to run 
 $ cd src/main/docker  
   $ docker-compose up
+App started on 8888 port.
 
 ### After running u can test endpoints 
 $ cd http  
