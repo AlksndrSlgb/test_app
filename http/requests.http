@@ -1,0 +1,41 @@
+### Signup new user
+POST http://localhost:8888/signup
+Content-Type: application/json
+
+{
+  "name" : "user",
+  "password" : "password"
+}
+
+### Login and get 'access_token' for Authorization: Bearer_ like "user"
+POST http://localhost:8888/login
+Content-Type: application/json
+
+{
+  "name" : "user",
+  "password" : "password"
+}
+
+> {%client.global.set("token", response.body.token);
+%}
+
+### Add message
+POST http://localhost:8888/api/message
+Content-Type: application/json
+Authorization: Bearer_{{token}}
+
+{
+  "name" : "user",
+  "message" : "histor"
+}
+
+
+### Get messages
+POST http://localhost:8888/api/message
+Content-Type: application/json
+Authorization: Bearer_{{token}}
+
+{
+  "name" : "user",
+  "message" : "history 10"
+}
