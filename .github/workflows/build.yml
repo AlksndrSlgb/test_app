@@ -22,4 +22,4 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: mvn clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar -B -X -Dsonar.projectKey=testappl_test-ap -f ./pom.xml
+        run: mvn clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar -B -X -Dsonar.projectKey=testappl_test-ap -Dsonar.pullrequest.key=$GITHUB_PULL_REQUEST_NUMBER -Dsonar.pullrequest.branch=$GITHUB_HEAD_REF -Dsonar.pullrequest.base=$GITHUB_BASE_REF -f ./pom.xml
