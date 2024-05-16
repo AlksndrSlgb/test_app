@@ -27,4 +27,4 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           ls target
-          mvn sonar:sonar -Dsonar.projectKey=testappl_test-ap
+          mvn sonar:sonar -X -Dsonar.projectKey=testappl_test-ap
