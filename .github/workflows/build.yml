@@ -27,4 +27,4 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           ls target
-          mvn -B org.sonarsource.scanner.maven:sonar-maven-plugin:sonar:sonar -X -Dsonar.projectKey=testappl_test-ap
+          mvn -B org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar -X -Dsonar.projectKey=testappl_test-ap
