@@ -18,7 +18,13 @@ jobs:
         with:
           java-version: '17'
           distribution: 'adopt'
-      - name: Build and analyze
+      - name: Build
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn  verify sonar:sonar -Dsonar.projectKey=testappl_test-ap
+        run: mvn clean verify
+      - name: Analysis
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+          ls target
+          mvn sonar:sonar -Dsonar.projectKey=testappl_test-ap
