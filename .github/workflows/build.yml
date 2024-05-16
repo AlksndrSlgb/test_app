@@ -21,10 +21,4 @@ jobs:
       - name: Build
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn clean verify
-      - name: Analysis
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: |
-          ls target
-          mvn -B org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar -X -Dsonar.projectKey=testappl_test-ap
+        run: mvn clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar -X -Dsonar.projectKey=testappl_test-ap
